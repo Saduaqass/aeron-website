@@ -11,7 +11,7 @@ export const vehicleColors = [
 ] as const;
 
 export type VehicleColorId = (typeof vehicleColors)[number]["id"];
-export type CameraPreset = "front" | "side" | "rear";
+export type CameraPreset = "front" | "side" | "rear" | "detail" | "high" | "reveal";
 export type WheelStyle = "aero" | "sport";
 export type InteriorColorId = "charcoal" | "sand" | "blue";
 

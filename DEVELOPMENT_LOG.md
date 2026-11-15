@@ -62,3 +62,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Browser interaction verified the Arctic paint selection state and the side camera view.
 - Commit: Pending
 - Push: Pending
+
+## Stage 8 — Scroll-driven storytelling
+
+- Date: 2026-11-15
+- Changes: Added a six-beat sticky story sequence for concept, aerodynamics, lighting, form, technology, and final reveal. Scroll progress updates the scene title, progress rail, and shared 3D camera preset. Changed the WebGL renderer to demand-driven frames so idle scenes stop drawing.
+- Skills: Applied `choreograph` for scene pacing and clear motion roles, `animate` for threshold-based interruptible transitions, and `animation-performance` for transform-only progress and demand rendering.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending

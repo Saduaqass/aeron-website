@@ -12,6 +12,9 @@ const cameraPositions: Record<CameraPreset, [number, number, number]> = {
   front: [-5.5, 2.75, 7.8],
   side: [0, 1.9, 9.4],
   rear: [5.5, 2.75, -7.8],
+  detail: [-3.6, 1.45, 4.7],
+  high: [0, 5.6, 8],
+  reveal: [6.2, 3.9, 8.2],
 };
 
 function CameraRig({ preset }: { preset: CameraPreset }) {
@@ -54,20 +57,21 @@ function Studio({ bodyColor, lighting, wheelStyle, cameraPreset }: {
   );
 }
 
-export default function VehicleViewer() {
+export default function VehicleViewer({ showControls = true, className = "" }: { showControls?: boolean; className?: string }) {
   const { bodyColor, setBodyColor, cameraPreset, setCameraPreset, lighting, setLighting, wheelStyle } = useVehicleConfig();
   return (
-    <div className="vehicle-canvas" aria-label="Интерактивная трёхмерная концепт-модель AERON ONE">
+    <div className={`vehicle-canvas ${className}`} aria-label="Интерактивная трёхмерная концепт-модель AERON ONE">
       <Canvas
         camera={{ position: [-5.5, 2.75, 7.8], fov: 34 }}
         dpr={[1, 1.5]}
+        frameloop="demand"
         gl={{ antialias: false, powerPreference: "low-power", alpha: true }}
         shadows={false}
         fallback={<p className="vehicle-canvas__fallback">3D көрінісі бұл браузерде қолжетімсіз. AERON ONE конфигурациясын төменнен өзгерте аласыз.</p>}
       >
         <Suspense fallback={null}><Studio bodyColor={bodyColor} lighting={lighting} wheelStyle={wheelStyle} cameraPreset={cameraPreset} /></Suspense>
       </Canvas>
-      <div className="vehicle-tools" aria-label="Басқару элементтері">
+      {showControls ? <div className="vehicle-tools" aria-label="Басқару элементтері">
         <div className="vehicle-colors" role="group" aria-label="Кузов түсі">
           {vehicleColors.map((color) => (
             <button
@@ -89,8 +93,8 @@ export default function VehicleViewer() {
         <button className="vehicle-light" type="button" aria-label="Жарықты ауыстыру" aria-pressed={lighting} onClick={() => setLighting(!lighting)}>
           {lighting ? <Lightbulb size={14} aria-hidden="true" /> : <Camera size={14} aria-hidden="true" />}
         </button>
-      </div>
-      <span className="vehicle-canvas__hint">СҮЙРЕТІП КӨРУ · ЕКІ САУСАҚПЕН ЖАҚЫНДАТУ</span>
+      </div> : null}
+      {showControls ? <span className="vehicle-canvas__hint">СҮЙРЕТІП КӨРУ · ЕКІ САУСАҚПЕН ЖАҚЫНДАТУ</span> : null}
     </div>
   );
 }
