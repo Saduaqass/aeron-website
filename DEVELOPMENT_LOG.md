@@ -150,5 +150,5 @@
 - Changes: Added Playwright configuration and end-to-end coverage for Kazakh-default localization and persistence, the Escape-dismissable mobile menu, live configurator summary updates, contact form validation/no-server state, and 320px overflow/touch target checks. Added the `test:e2e` script.
 - Skills: Applied `frontend-engineer` testing practices and `animation-performance` guidance to wait on visible UI state rather than fixed-time rendering assumptions.
 - Checks: `npm run test:e2e` passes (5 browser scenarios); `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `git diff --check` pass. One initial test run exposed an async 3D control timing assumption; the test now waits for the control to become visible.
-- Commit: Pending
-- Push: Pending
+- Commit: `14fa43e` (`test: add browser coverage for core journeys`)
+- Push: Successful; verified on `origin/main`
