@@ -15,6 +15,7 @@ const chapterCameras: CameraPreset[] = ["front", "side", "detail", "side", "high
 
 export function StorySection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const previousIndex = useRef(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const { setCameraPreset } = useVehicleConfig();
   const { copy } = useLocale();
@@ -23,10 +24,10 @@ export function StorySection() {
 
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
     const index = Math.min(chapterCameras.length - 1, Math.floor(progress * chapterCameras.length));
-    setActiveIndex((current) => {
-      if (current !== index) setCameraPreset(chapterCameras[index]);
-      return index === current ? current : index;
-    });
+    if (previousIndex.current === index) return;
+    previousIndex.current = index;
+    setActiveIndex(index);
+    setCameraPreset(chapterCameras[index]);
   });
 
   const chapter = copy.story.chapters[activeIndex];

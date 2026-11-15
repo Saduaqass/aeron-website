@@ -22,7 +22,7 @@ function CameraRig({ preset }: { preset: CameraPreset }) {
   const { camera } = useThree();
   useEffect(() => {
     camera.position.set(...cameraPositions[preset]);
-    camera.lookAt(0, 0.66, 0);
+    camera.lookAt(0, 0.1, 0);
     camera.updateProjectionMatrix();
   }, [camera, preset]);
   return null;
@@ -52,7 +52,7 @@ function Studio({ bodyColor, lighting, wheelStyle, cameraPreset }: {
         maxDistance={11}
         minPolarAngle={Math.PI * 0.31}
         maxPolarAngle={Math.PI * 0.56}
-        target={[0, 0.66, 0]}
+        target={[0, 0.1, 0]}
       />
     </>
   );
