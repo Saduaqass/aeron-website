@@ -24,5 +24,5 @@
 - Changes: Added the Obsidian/Graphite/Titanium/Electric palette, responsive type and spacing tokens, accessible focus/press states, reduced-motion handling, button and section-heading primitives, and AERON metadata. Removed starter branding and added the Manrope Cyrillic-capable font.
 - Skills: Applied `emil-design-eng` and `animate` guidance for explicit transitions, custom easing, press feedback, reduced motion, and low-noise motion; applied `frontend-engineer` for reusable semantic components and keyboard focus.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `df6407c268d3f934ff2849844c822f4d9f368fd9` (`feat: create AERON design system`)
+- Push: Successful; verified on `origin/main`
