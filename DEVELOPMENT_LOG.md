@@ -78,8 +78,8 @@
 - Changes: Added an interactive design presentation with the procedural 3D model, image reveal, conceptual aero callout, and accessible detail selectors that change the shared camera angle and description.
 - Skills: Applied `animate` for the reveal, `emil-design-eng` for intentional states and transitions, and `frontend-engineer` for accessible button-driven feature selection.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `279050f85ff28a36f46b3799afdae7ddabaa11be` (`feat: build interior and technology sections`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 10 — Performance section
 
