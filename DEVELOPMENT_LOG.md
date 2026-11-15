@@ -116,3 +116,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: Pending
 - Push: Pending
+
+## Stage 14 — Contact and footer
+
+- Date: 2026-11-15
+- Changes: Added the localized contact form with client-side name/email/message validation, focus on the first invalid field, and an explicit message that no server submission occurred. Added a translated footer with section navigation and a back-to-top link.
+- Skills: Applied `frontend-engineer` for labeled accessible forms, inline validation, and responsive layout; kept the no-backend state honest and visible.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending

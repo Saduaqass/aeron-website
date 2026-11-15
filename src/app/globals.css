@@ -369,6 +369,35 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .config-summary > p strong { color: var(--text); font-size: 1rem; letter-spacing: 0.1em; }
 .config-summary > p span, .config-summary > small { color: #9aa3ad; font-size: 0.72rem; }
 .config-summary > small { display: block; color: #747e88; line-height: 1.6; }
+.contact-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(3rem, 8vw, 8rem); padding-block: clamp(6rem, 12vw, 11rem); background: #0e1116; }
+.contact-section__intro .eyebrow { margin: 0 0 1.4rem; }
+.contact-section__intro h2 span { color: #727c86; }
+.contact-section__intro .body-copy { margin-top: 1.3rem; }
+.contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 1.45rem 1rem; }
+.contact-form__field { display: grid; gap: 0.65rem; }
+.contact-form__field--wide { grid-column: 1 / -1; }
+.contact-form__field label { color: #aab2ba; font-size: 0.67rem; }
+.contact-form__field input, .contact-form__field textarea { width: 100%; border: 1px solid rgb(255 255 255 / 13%); border-radius: 0; padding: 0.9rem 0.95rem; background: rgb(255 255 255 / 2%); color: var(--text); font: inherit; font-size: 16px; outline: none; transition: border-color 160ms ease, background-color 160ms ease; }
+.contact-form__field textarea { min-height: 8rem; resize: vertical; }
+.contact-form__field input::placeholder, .contact-form__field textarea::placeholder { color: #65707a; font-size: 0.76rem; }
+.contact-form__field input:focus, .contact-form__field textarea:focus { border-color: rgb(120 170 230 / 70%); background: rgb(255 255 255 / 4%); }
+.contact-form__field [aria-invalid="true"] { border-color: #ef727c; }
+.contact-form__error { color: #ff9ba2; font-size: 0.65rem; }
+.contact-form__submit { justify-self: start; border: 0; cursor: pointer; }
+.contact-form__status { grid-column: 1 / -1; min-height: 1.3rem; margin: 0; color: #aab8c6; font-size: 0.72rem; line-height: 1.6; }
+.site-footer { padding-block: 2.6rem 1.4rem; background: #080a0d; }
+.site-footer__top { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 2rem; }
+.site-footer__top p { margin: 0; color: #bbc2c9; font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: -0.035em; }
+.site-footer__top-link { display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: #d6dce1; transition: color 160ms ease, border-color 160ms ease; }
+.site-footer__middle { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1.5rem; }
+.site-footer__middle nav { display: flex; flex-wrap: wrap; gap: 1.15rem; }
+.site-footer__middle nav a { color: #8e98a2; font-size: 0.64rem; text-decoration: none; }
+.site-footer__middle > span { color: #66717b; font-size: 0.53rem; letter-spacing: 0.14em; }
+.site-footer__bottom { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 1.2rem; color: #65707a; font-size: 0.55rem; }
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__middle nav a:hover, .site-footer__top-link:hover { color: #fff; }
+  .site-footer__top-link:hover { border-color: rgb(255 255 255 / 42%); }
+}
 @media (hover: hover) and (pointer: fine) {
   .config-swatch:hover { transform: scale(1.08); }
   .config-choice-row button:hover { border-color: rgb(255 255 255 / 38%); color: white; }
@@ -458,6 +487,17 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .vehicle-canvas--configurator { height: 20rem; }
   .configurator-options { width: 100%; }
   .config-swatch { width: 2rem; height: 2rem; }
+  .contact-section { grid-template-columns: 1fr; gap: 2.5rem; padding-block: 5.5rem; }
+  .contact-form { gap: 1.2rem 0.8rem; }
+  .contact-form__field--wide { grid-column: 1 / -1; }
+  .contact-form__field input, .contact-form__field textarea { padding: 0.8rem; }
+  .site-footer { padding-block: 2rem 1.2rem; }
+  .site-footer__top { gap: 1rem; padding-bottom: 1.3rem; }
+  .site-footer__top p { max-width: 14ch; font-size: 0.9rem; text-align: center; }
+  .site-footer__top-link { width: 2.2rem; height: 2.2rem; }
+  .site-footer__middle { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
+  .site-footer__middle nav { gap: 0.8rem 1rem; }
+  .site-footer__bottom { gap: 0.7rem; font-size: 0.48rem; }
 }
 
 @media (min-width: 701px) and (max-width: 900px) {
