@@ -42,8 +42,8 @@
 - Changes: Built a full-height Kazakh-first hero with original AERON ONE silhouette artwork, ambient studio lighting, staged title/vehicle/metadata reveal, model label, exploration actions, and a responsive mobile composition.
 - Skills: Applied `animate` and `choreograph` for a purpose-led entrance with overlapping text, car, and supporting details; used `emil-design-eng` easing and press-feedback guidance; respected `prefers-reduced-motion`.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `4ab1805c46b66e15c59ec94a6ae4fcc3884b14aa` (`feat: add interactive vehicle controls`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 6 — Procedural Three.js vehicle scene
 
