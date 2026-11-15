@@ -107,3 +107,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: Pending
 - Push: Pending
+
+## Stage 13 — KZ / RU / EN localization
+
+- Date: 2026-11-15
+- Changes: Added Kazakh-default, Russian, and English message catalogs for the navigation, hero, story, design, performance, interior, technology, vehicle controls, and configurator. Added a persistent language selector and synchronized the document language, title, and description metadata.
+- Skills: Applied `frontend-engineer` for locale-aware accessible controls and metadata; followed the responsive and reduced-motion foundations established in the earlier design and animation stages.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending

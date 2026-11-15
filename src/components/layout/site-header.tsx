@@ -4,16 +4,18 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
+import { useLocale } from "@/locales/locale-provider";
 
 const links = [
-  ["design", "Design"],
-  ["performance", "Performance"],
-  ["interior", "Interior"],
-  ["technology", "Technology"],
-  ["configurator", "Configurator"],
-];
+  { id: "design", label: "design" },
+  { id: "performance", label: "performance" },
+  { id: "interior", label: "interior" },
+  { id: "technology", label: "technology" },
+  { id: "configurator", label: "configurator" },
+] as const;
 
 export function SiteHeader() {
+  const { locale, setLocale, copy } = useLocale();
   const [compact, setCompact] = useState(false);
   const [active, setActive] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,7 +25,7 @@ export function SiteHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const sections = ["home", ...links.map(([id]) => id), "contact"]
+    const sections = ["home", ...links.map(({ id }) => id), "contact"]
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => section !== null);
     const observer = new IntersectionObserver(
@@ -65,27 +67,27 @@ export function SiteHeader() {
           AERON<span className="brand-mark__dot">.</span>
         </Link>
 
-        <nav className="desktop-nav" aria-label="Main navigation">
-          {links.map(([id, label]) => (
+        <nav className="desktop-nav" aria-label={copy.nav.aria}>
+          {links.map(({ id, label }) => (
             <Link key={id} href={`#${id}`} className={active === id ? "is-active" : ""}>
-              {label}
+              {copy.nav[label]}
             </Link>
           ))}
         </nav>
 
         <div className="site-header__actions">
-          <div className="language-switch" aria-label="Language">
-            <button type="button" aria-pressed="true">KZ</button>
-            <button type="button" aria-pressed="false">RU</button>
-            <button type="button" aria-pressed="false">EN</button>
+          <div className="language-switch" role="group" aria-label={copy.nav.language}>
+            {([ ["kk", "KZ"], ["ru", "RU"], ["en", "EN"] ] as const).map(([value, label]) => (
+              <button key={value} type="button" aria-pressed={locale === value} onClick={() => setLocale(value)}>{label}</button>
+            ))}
           </div>
           <Link className="header-cta" href="#contact">
-            <span>Contact</span><ArrowUpRight size={15} strokeWidth={1.7} aria-hidden="true" />
+            <span>{copy.nav.contact}</span><ArrowUpRight size={15} strokeWidth={1.7} aria-hidden="true" />
           </Link>
           <button
             className="menu-toggle"
             type="button"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={menuOpen ? copy.nav.menuClose : copy.nav.menuOpen}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((open) => !open)}
@@ -98,12 +100,12 @@ export function SiteHeader() {
       <nav
         id="mobile-navigation"
         className={`mobile-nav${menuOpen ? " mobile-nav--open" : ""}`}
-        aria-label="Mobile navigation"
+        aria-label={copy.nav.aria}
         aria-hidden={!menuOpen}
         inert={!menuOpen}
       >
         <div className="mobile-nav__links">
-          {[["home", "Home"], ...links, ["contact", "Contact"]].map(([id, label], index) => (
+          {[{ id: "home", label: copy.nav.home }, ...links.map(({ id, label }) => ({ id, label: copy.nav[label] })), { id: "contact", label: copy.nav.contact }].map(({ id, label }, index) => (
             <Link key={id} href={`#${id}`} onClick={closeMenu} style={{ "--item-index": index } as CSSProperties}>
               <span>{label}</span><ArrowUpRight size={19} strokeWidth={1.6} aria-hidden="true" />
             </Link>

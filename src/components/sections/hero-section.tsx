@@ -4,6 +4,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
+import { useLocale } from "@/locales/locale-provider";
 
 const VehicleViewer = dynamic(() => import("@/components/three/vehicle-viewer"), {
   ssr: false,
@@ -17,6 +18,7 @@ const entrance = {
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
+  const { copy } = useLocale();
 
   return (
     <section id="home" className="hero" aria-labelledby="hero-title">
@@ -29,19 +31,19 @@ export function HeroSection() {
           transition={{ duration: 0.85, ease: [0.23, 1, 0.32, 1], delay: 0.12 }}
           variants={entrance}
         >
-          <p className="eyebrow hero__eyebrow"><span /> Электр қуаты. Жаңа дәуір.</p>
+          <p className="eyebrow hero__eyebrow"><span /> {copy.hero.eyebrow}</p>
           <h1 id="hero-title">Beyond<br /><span>Electric.</span></h1>
           <p className="hero__model">AERON <span>ONE</span></p>
           <div className="hero__actions">
-            <Link className="button-primary" href="#design">AERON-ды зерттеу <ArrowUpRight size={16} aria-hidden="true" /></Link>
-            <a className="hero__text-link" href="#configurator">Конфигуратор</a>
+            <Link className="button-primary" href="#design">{copy.hero.explore} <ArrowUpRight size={16} aria-hidden="true" /></Link>
+            <a className="hero__text-link" href="#configurator">{copy.hero.configure}</a>
           </div>
         </motion.div>
 
         <motion.div
           className="hero__vehicle"
           role="group"
-          aria-label="AERON ONE концепт-спортседаны"
+          aria-label={`AERON ONE · ${copy.hero.concept}`}
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.35, ease: [0.23, 1, 0.32, 1], delay: 0.22 }}
@@ -58,7 +60,7 @@ export function HeroSection() {
           variants={entrance}
         >
           <span className="hero__index">01 <i>/</i> 06</span>
-          <a href="#design" className="hero__scroll"><ArrowDown size={15} aria-hidden="true" /> <span>Төмен айналдырыңыз</span></a>
+          <a href="#design" className="hero__scroll"><ArrowDown size={15} aria-hidden="true" /> <span>{copy.hero.scroll}</span></a>
           <span className="hero__coordinates">43°14&apos;N &nbsp; 76°57&apos;E</span>
         </motion.div>
       </div>

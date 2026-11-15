@@ -2,13 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { animate, motion, useInView, useMotionValue, useTransform } from "motion/react";
+import { useLocale } from "@/locales/locale-provider";
 
-const metrics = [
-  { label: "0–100 км/сағ", amount: 38, decimals: 1, unit: "с", note: "Болжамды үдеу" },
-  { label: "Жүріс қоры", amount: 600, decimals: 0, unit: "км", note: "Демонстрациялық бағалау" },
-  { label: "Қуат", amount: 450, decimals: 0, unit: "кВт", note: "Концептуалды көрсеткіш" },
-  { label: "Жылдам қуаттау", amount: 24, decimals: 0, unit: "мин", note: "15–80% шартты уақыт" },
-];
+const metricAmounts = [38, 600, 450, 24];
+const metricDecimals = [1, 0, 0, 0];
 
 function MetricValue({ amount, decimals, unit }: { amount: number; decimals: number; unit: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -26,14 +23,16 @@ function MetricValue({ amount, decimals, unit }: { amount: number; decimals: num
 }
 
 export function PerformanceSection() {
+  const { copy } = useLocale();
+  const metrics = copy.performance.metrics;
   return (
     <section id="performance" className="performance-section page-gutter" aria-labelledby="performance-title">
       <div className="performance-section__header">
         <div>
-          <p className="eyebrow">02 &nbsp; / &nbsp; ҚОЗҒАЛЫС ЖӘНЕ ҚУАТ</p>
-          <h2 id="performance-title" className="section-title">Күш. Үнсіз түрде.</h2>
+          <p className="eyebrow">02 &nbsp; / &nbsp; {copy.performance.eyebrow}</p>
+          <h2 id="performance-title" className="section-title">{copy.performance.title}</h2>
         </div>
-        <p className="body-copy">Электр платформасы лезде жауап беріп, күнделікті сапарды тыныш әрі сенімді етеді.</p>
+        <p className="body-copy">{copy.performance.copy}</p>
       </div>
 
       <div className="performance-metrics">
@@ -41,18 +40,18 @@ export function PerformanceSection() {
           <article className="metric-card" key={metric.label}>
             <span className="metric-card__index">0{index + 1}</span>
             <p className="metric-card__label">{metric.label}</p>
-            <MetricValue amount={metric.amount} decimals={metric.decimals} unit={metric.unit} />
+            <MetricValue amount={metricAmounts[index]} decimals={metricDecimals[index]} unit={metric.unit} />
             <p className="metric-card__note">{metric.note}</p>
           </article>
         ))}
       </div>
 
       <div className="performance-band">
-        <span className="eyebrow">AERON ELECTRIC PLATFORM</span>
-        <p>Тыныш қуат. <span>Нақты жауап.</span></p>
+        <span className="eyebrow">{copy.performance.platform}</span>
+        <p>{copy.performance.band} <span>{copy.performance.bandAccent}</span></p>
         <div className="performance-band__line" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /></div>
       </div>
-      <p className="performance-disclaimer">Бұл — ойдан шығарылған концепт-көлік. Жоғарыдағы барлық сандар демонстрациялық сипатта, нақты сынақтан немесе инженерлік растаудан өтпеген.</p>
+      <p className="performance-disclaimer">{copy.performance.disclaimer}</p>
     </section>
   );
 }

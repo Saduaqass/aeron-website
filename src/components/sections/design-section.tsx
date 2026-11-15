@@ -5,31 +5,30 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { useVehicleConfig, type CameraPreset } from "@/lib/vehicle-config";
+import { useLocale } from "@/locales/locale-provider";
 
 const VehicleViewer = dynamic(() => import("@/components/three/vehicle-viewer"), {
   ssr: false,
   loading: () => <div className="vehicle-canvas vehicle-canvas--loading" aria-hidden="true" />,
 });
 
-const details: { index: string; title: string; description: string; camera: CameraPreset }[] = [
-  { index: "01", title: "Жарық қолтаңбасы", description: "Жіңішке алдыңғы оптика — технология мен мінездің алғашқы белгісі.", camera: "detail" },
-  { index: "02", title: "Ауа ағыны", description: "Төмен капот пен созылыңқы шатыр жел бағытын жұмсақ жалғайды.", camera: "side" },
-  { index: "03", title: "Жеңіл қозғалыс", description: "Аэродинамикалық диск дизайны таза профильді толықтырады.", camera: "rear" },
-];
+const featureCameras: CameraPreset[] = ["detail", "side", "rear"];
 
 export function DesignSection() {
   const [active, setActive] = useState(0);
   const { setCameraPreset } = useVehicleConfig();
-  const selected = details[active];
+  const { copy } = useLocale();
+  const selected = copy.design.details[active];
+  const [titleLead, titleRest] = copy.design.title.split("\n");
 
   return (
     <section id="design" className="design-section page-gutter" aria-labelledby="design-title">
       <div className="design-section__intro">
         <div>
-          <p className="eyebrow">01 &nbsp; / &nbsp; ПІШІН ЖӘНЕ ҚЫЗМЕТ</p>
-          <h2 id="design-title" className="section-title">Әр сызықтың<br /><span>өз себебі бар.</span></h2>
+          <p className="eyebrow">01 &nbsp; / &nbsp; {copy.design.eyebrow}</p>
+          <h2 id="design-title" className="section-title">{titleLead}<br /><span>{titleRest}</span></h2>
         </div>
-        <p className="body-copy">AERON ONE пішіні қозғалыстың өзінен басталады. Артық бөлшек жоқ — әр шешім тұтас силуэтке қызмет етеді.</p>
+        <p className="body-copy">{copy.design.copy}</p>
       </div>
 
       <motion.div
@@ -42,33 +41,33 @@ export function DesignSection() {
         <div className="design-stage__light design-stage__light--one" />
         <div className="design-stage__light design-stage__light--two" />
         <VehicleViewer showControls={false} className="vehicle-canvas--design" />
-        <div className="design-stage__label"><span>АУА ҚАРСЫЛЫҒЫ</span><strong>0.21*</strong></div>
-        <div className="design-stage__caption"><span>ПРОЦЕДУРАЛЫ КОНЦЕПТ-МОДЕЛЬ</span><span>AERON ONE / 01</span></div>
+        <div className="design-stage__label"><span>{copy.design.aero}</span><strong>0.21*</strong></div>
+        <div className="design-stage__caption"><span>{copy.design.concept}</span><span>AERON ONE / 01</span></div>
       </motion.div>
 
       <div className="design-details">
-        <div className="design-details__list" role="group" aria-label="Дизайн бөлшектері">
-          {details.map((detail, index) => (
+        <div className="design-details__list" role="group" aria-label={copy.design.index}>
+          {copy.design.details.map((detail, index) => (
             <button
-              key={detail.index}
+              key={detail.title}
               type="button"
               id={`design-tab-${index}`}
               aria-pressed={active === index}
               aria-controls="design-detail-panel"
-              onClick={() => { setActive(index); setCameraPreset(detail.camera); }}
+              onClick={() => { setActive(index); setCameraPreset(featureCameras[index]); }}
             >
-              <span>{detail.index}</span><span>{detail.title}</span>
+              <span>{String(index + 1).padStart(2, "0")}</span><span>{detail.title}</span>
               {active === index ? <ArrowUpRight size={17} aria-hidden="true" /> : <ArrowDownRight size={17} aria-hidden="true" />}
             </button>
           ))}
         </div>
         <div id="design-detail-panel" className="design-details__copy" aria-live="polite" aria-labelledby={`design-tab-${active}`}>
-          <p className="eyebrow">{selected.index} &nbsp; / &nbsp; ДИЗАЙН ЕРЕКШЕЛІГІ</p>
+          <p className="eyebrow">{String(active + 1).padStart(2, "0")} &nbsp; / &nbsp; {copy.design.index}</p>
           <h3>{selected.title}</h3>
-          <p>{selected.description}</p>
+          <p>{selected.copy}</p>
         </div>
       </div>
-      <p className="design-footnote">*Көрсеткіш концептуалды демонстрация ретінде берілген, инженерлік растауды білдірмейді.</p>
+      <p className="design-footnote">{copy.design.disclaimer}</p>
     </section>
   );
 }
