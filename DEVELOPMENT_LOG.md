@@ -53,3 +53,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Opened the local page in the browser and visually confirmed the model renders in the hero.
 - Commit: Pending
 - Push: Pending
+
+## Stage 7 — Interactive vehicle controls
+
+- Date: 2026-11-15
+- Changes: Added shared vehicle configuration state, five live paint colors, front/side/rear camera presets, a lighting toggle, wheel-style state, and orbit/zoom controls. Added a text fallback when WebGL is unavailable. Improved the side glazing and paint response.
+- Skills: Applied `gestures` for touch-capable drag/orbit and `animation-performance` for bounded zoom/damping and an explicitly low-power renderer; applied `frontend-engineer` for keyboard-operable labeled controls.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Browser interaction verified the Arctic paint selection state and the side camera view.
+- Commit: Pending
+- Push: Pending

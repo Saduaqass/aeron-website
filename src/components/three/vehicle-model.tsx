@@ -36,7 +36,7 @@ const bodyOptions: THREE.ExtrudeGeometryOptions = {
 };
 
 const cabinOptions: THREE.ExtrudeGeometryOptions = {
-  depth: 1.62,
+  depth: 1.9,
   bevelEnabled: true,
   bevelSegments: 2,
   steps: 1,
@@ -86,11 +86,11 @@ export function VehicleModel({ color = "#b8c0c8", lighting = true, wheelStyle = 
     <group rotation={[0, -0.12, 0]}>
       <mesh castShadow receiveShadow position={[0, 0, -0.92]}>
         <extrudeGeometry args={[bodyShape, bodyOptions]} />
-        <meshPhysicalMaterial color={color} metalness={0.78} roughness={0.24} clearcoat={0.9} clearcoatRoughness={0.18} />
+        <meshPhysicalMaterial color={color} metalness={0.42} roughness={0.23} clearcoat={0.95} clearcoatRoughness={0.16} />
       </mesh>
-      <mesh castShadow position={[0, 0, -0.81]}>
+      <mesh castShadow position={[0, 0, -0.95]}>
         <extrudeGeometry args={[cabinShape, cabinOptions]} />
-        <meshPhysicalMaterial color="#111820" metalness={0.54} roughness={0.18} clearcoat={1} />
+        <meshPhysicalMaterial color="#101820" metalness={0.16} roughness={0.14} clearcoat={1} />
       </mesh>
       <mesh position={[-0.05, 1.57, 0]} scale={[0.67, 0.04, 0.74]}>
         <boxGeometry args={[1, 1, 1]} />

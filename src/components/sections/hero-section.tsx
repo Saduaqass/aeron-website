@@ -48,7 +48,6 @@ export function HeroSection() {
         >
           <div className="hero__vehicle-glow" />
           <VehicleViewer />
-          <span className="hero__vehicle-note">AERON ONE <i>·</i> CONCEPT</span>
         </motion.div>
 
         <motion.div
