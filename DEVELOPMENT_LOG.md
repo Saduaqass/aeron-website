@@ -80,3 +80,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: Pending
 - Push: Pending
+
+## Stage 10 — Performance section
+
+- Date: 2026-11-15
+- Changes: Added animated acceleration, range, power, and charging concept metrics plus a platform statement. Every value is explicitly marked as a projection/demonstration, not a verified engineering result.
+- Skills: Applied `animate` for once-only numeric entrances and `animation-performance` for visibility-gated work; followed `frontend-engineer` responsive content and contrast guidance.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending
