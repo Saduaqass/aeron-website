@@ -87,8 +87,8 @@
 - Changes: Added animated acceleration, range, power, and charging concept metrics plus a platform statement. Every value is explicitly marked as a projection/demonstration, not a verified engineering result.
 - Skills: Applied `animate` for once-only numeric entrances and `animation-performance` for visibility-gated work; followed `frontend-engineer` responsive content and contrast guidance.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `425fee619b2de20785c0af5f5a0ed844d42a120c` (`feat: implement vehicle configurator`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 11 — Interior and technology
 
