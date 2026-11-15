@@ -33,8 +33,8 @@
 - Changes: Added the sticky compacting header, active-section tracking, desktop navigation, language selector shell, and Escape-closeable mobile navigation with accessible state attributes and focus-visible support.
 - Skills: Applied `emil-design-eng` and `choreograph` guidance for purposeful, coordinated menu transitions; applied `mobile-native` for touch feedback and hover capability gating; applied `frontend-engineer` for keyboard interaction and semantic navigation.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `62a8cd25b90b54b8ab2495ecd561d8c7b4baff9a` (`feat: integrate 3d vehicle scene`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 5 — Cinematic hero
 
