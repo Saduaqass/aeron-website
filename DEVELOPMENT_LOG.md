@@ -134,3 +134,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Browser verified 320px layout with no horizontal document overflow, 44px control targets, and mobile menu open/Escape close.
 - Commit: `b5751fa` (`feat: optimize mobile experience`)
 - Push: Successful; verified on `origin/main`
+
+## Stage 16 — Accessibility and rendering performance
+
+- Date: 2026-11-15
+- Changes: Added viewport-driven mounting for the story, design, and configurator 3D canvases so offscreen scenes do not keep WebGL contexts active; reduced the maximum pixel ratio from 1.5 to 1.25; gave vehicle viewers explicit image/group semantics while retaining the WebGL fallback and independent controls.
+- Skills: Applied `animation-performance` for demand rendering and viewport-gated WebGL work, `frontend-engineer` for accessible scene semantics and fallback controls, and the previously applied `mobile-native` and `emil-design-eng` responsive/focus guidance.
+- Checks: `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `git diff --check` pass. Browser at the initial route showed one mounted Canvas with below-fold scene placeholders; the WebGL unavailable message and control alternatives were present. No browser runtime errors were logged after the clean reload; Three.js emitted a dependency deprecation warning for `THREE.Clock`.
+- Commit: Pending
+- Push: Pending

@@ -41,7 +41,7 @@ export function StorySection() {
           <span>{copy.story.top}</span>
         </div>
         <div className="story__model">
-          <VehicleViewer showControls={false} className="vehicle-canvas--story" />
+          <VehicleViewer showControls={false} className="vehicle-canvas--story" renderWhenNear />
         </div>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div

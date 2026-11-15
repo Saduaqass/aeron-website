@@ -40,7 +40,7 @@ export function DesignSection() {
       >
         <div className="design-stage__light design-stage__light--one" />
         <div className="design-stage__light design-stage__light--two" />
-        <VehicleViewer showControls={false} className="vehicle-canvas--design" />
+        <VehicleViewer showControls={false} className="vehicle-canvas--design" renderWhenNear />
         <div className="design-stage__label"><span>{copy.design.aero}</span><strong>0.21*</strong></div>
         <div className="design-stage__caption"><span>{copy.design.concept}</span><span>AERON ONE / 01</span></div>
       </motion.div>

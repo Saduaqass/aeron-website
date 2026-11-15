@@ -33,7 +33,7 @@ export function ConfiguratorSection() {
       </div>
       <div className="configurator-layout">
         <div className="configurator-preview">
-          <VehicleViewer showControls={false} className="vehicle-canvas--configurator" />
+          <VehicleViewer showControls={false} className="vehicle-canvas--configurator" renderWhenNear />
           <span className="configurator-preview__label">{exteriorName.toUpperCase()} &nbsp; / &nbsp; AERON ONE</span>
         </div>
 

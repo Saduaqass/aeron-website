@@ -236,6 +236,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .vehicle-canvas canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; }
 .vehicle-canvas__hint { position: absolute; right: 7%; bottom: 10%; color: #8b939c; font-size: 0.53rem; letter-spacing: 0.2em; pointer-events: none; }
 .vehicle-canvas--loading { background: radial-gradient(ellipse at 50% 58%, rgb(75 91 109 / 25%), transparent 54%); }
+.vehicle-canvas__deferred { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 58%, rgb(75 91 109 / 25%), transparent 54%); }
 .vehicle-tools { position: absolute; z-index: 2; bottom: 2.15rem; left: 50%; display: flex; align-items: center; gap: 1rem; transform: translateX(-50%); }
 .vehicle-colors, .vehicle-angles { display: flex; align-items: center; gap: 0.35rem; }
 .vehicle-color { position: relative; display: grid; width: 2.75rem; height: 2.75rem; flex: 0 0 auto; place-items: center; border: 0; border-radius: 50%; padding: 0; background: transparent; cursor: pointer; transition: transform 160ms var(--ease-out); }

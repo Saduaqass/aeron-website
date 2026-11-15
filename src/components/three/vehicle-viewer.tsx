@@ -2,7 +2,7 @@
 
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Suspense, useEffect, type CSSProperties } from "react";
+import { Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
 import { VehicleModel } from "@/components/three/vehicle-model";
 import { useVehicleConfig, vehicleColors } from "@/lib/vehicle-config";
 import { Camera, Lightbulb } from "lucide-react";
@@ -58,21 +58,31 @@ function Studio({ bodyColor, lighting, wheelStyle, cameraPreset }: {
   );
 }
 
-export default function VehicleViewer({ showControls = true, className = "" }: { showControls?: boolean; className?: string }) {
+export default function VehicleViewer({ showControls = true, className = "", renderWhenNear = false }: { showControls?: boolean; className?: string; renderWhenNear?: boolean }) {
   const { bodyColor, setBodyColor, cameraPreset, setCameraPreset, lighting, setLighting, wheelStyle } = useVehicleConfig();
   const { copy } = useLocale();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [nearViewport, setNearViewport] = useState(!renderWhenNear);
+
+  useEffect(() => {
+    if (!renderWhenNear || !containerRef.current) return;
+    const observer = new IntersectionObserver(([entry]) => setNearViewport(entry.isIntersecting));
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, [renderWhenNear]);
+
   return (
-    <div className={`vehicle-canvas ${className}`} aria-label={`AERON ONE · ${copy.vehicle.controls}`}>
-      <Canvas
-        camera={{ position: [-5.5, 2.75, 7.8], fov: 34 }}
-        dpr={[1, 1.5]}
-        frameloop="demand"
-        gl={{ antialias: false, powerPreference: "low-power", alpha: true }}
-        shadows={false}
-        fallback={<p className="vehicle-canvas__fallback">{copy.vehicle.unavailable}</p>}
-      >
-        <Suspense fallback={null}><Studio bodyColor={bodyColor} lighting={lighting} wheelStyle={wheelStyle} cameraPreset={cameraPreset} /></Suspense>
-      </Canvas>
+    <div ref={containerRef} className={`vehicle-canvas ${className}`} role={showControls ? "group" : "img"} aria-label={`AERON ONE · ${copy.vehicle.controls}`}>
+      {nearViewport ? <Canvas
+          camera={{ position: [-5.5, 2.75, 7.8], fov: 34 }}
+          dpr={[1, 1.25]}
+          frameloop="demand"
+          gl={{ antialias: false, powerPreference: "low-power", alpha: true }}
+          shadows={false}
+          fallback={<p className="vehicle-canvas__fallback">{copy.vehicle.unavailable}</p>}
+        >
+          <Suspense fallback={null}><Studio bodyColor={bodyColor} lighting={lighting} wheelStyle={wheelStyle} cameraPreset={cameraPreset} /></Suspense>
+        </Canvas> : <div className="vehicle-canvas__deferred" aria-hidden="true" />}
       {showControls ? <div className="vehicle-tools" aria-label={copy.vehicle.controls}>
         <div className="vehicle-colors" role="group" aria-label={copy.vehicle.colorGroup}>
           {vehicleColors.map((color, index) => (
