@@ -152,3 +152,12 @@
 - Checks: `npm run test:e2e` passes (5 browser scenarios); `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `git diff --check` pass. One initial test run exposed an async 3D control timing assumption; the test now waits for the control to become visible.
 - Commit: `14fa43e` (`test: add browser coverage for core journeys`)
 - Push: Successful; verified on `origin/main`
+
+## Stage 18 — Release documentation
+
+- Date: 2026-11-15
+- Changes: Replaced the initialization placeholder README with the implemented feature set, setup/build/test commands, current product limitations, project structure, skills provenance, original asset/license notes, and repository link.
+- Skills: Applied `documentation-writer` for task-oriented project documentation and kept technical claims within verified project behavior.
+- Checks: `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm run test:e2e` (5 scenarios), and production dependency audit pass.
+- Commit: Pending
+- Push: Pending
