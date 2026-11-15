@@ -96,8 +96,8 @@
 - Changes: Added an original vector concept illustration of the cabin with three keyboard-operable interest points, plus four technology cards for driver assistance, digital cockpit, energy management, and connectivity. Explicitly state that driver assistance is not full autonomy.
 - Skills: Applied `frontend-engineer` for accessible selection and responsive image treatment; applied `emil-design-eng` for compact, clear interaction states.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `91ab329d57e3a34aa8ad87fad7c26a7cd911ed93` (`feat: add multilingual support`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 12 — Vehicle configurator
 
