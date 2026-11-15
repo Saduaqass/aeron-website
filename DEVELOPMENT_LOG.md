@@ -143,3 +143,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `git diff --check` pass. Browser at the initial route showed one mounted Canvas with below-fold scene placeholders; the WebGL unavailable message and control alternatives were present. No browser runtime errors were logged after the clean reload; Three.js emitted a dependency deprecation warning for `THREE.Clock`.
 - Commit: `535765f` (`perf: optimize accessibility and rendering`)
 - Push: Successful; verified on `origin/main`
+
+## Stage 17 — Browser tests and regression fixes
+
+- Date: 2026-11-15
+- Changes: Added Playwright configuration and end-to-end coverage for Kazakh-default localization and persistence, the Escape-dismissable mobile menu, live configurator summary updates, contact form validation/no-server state, and 320px overflow/touch target checks. Added the `test:e2e` script.
+- Skills: Applied `frontend-engineer` testing practices and `animation-performance` guidance to wait on visible UI state rather than fixed-time rendering assumptions.
+- Checks: `npm run test:e2e` passes (5 browser scenarios); `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `git diff --check` pass. One initial test run exposed an async 3D control timing assumption; the test now waits for the control to become visible.
+- Commit: Pending
+- Push: Pending
