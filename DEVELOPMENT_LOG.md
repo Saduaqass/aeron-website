@@ -35,3 +35,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: Pending
 - Push: Pending
+
+## Stage 5 — Cinematic hero
+
+- Date: 2026-11-15
+- Changes: Built a full-height Kazakh-first hero with original AERON ONE silhouette artwork, ambient studio lighting, staged title/vehicle/metadata reveal, model label, exploration actions, and a responsive mobile composition.
+- Skills: Applied `animate` and `choreograph` for a purpose-led entrance with overlapping text, car, and supporting details; used `emil-design-eng` easing and press-feedback guidance; respected `prefers-reduced-motion`.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending
