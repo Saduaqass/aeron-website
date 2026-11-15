@@ -312,6 +312,35 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .performance-band__line { position: absolute; right: -3%; bottom: 2rem; left: 35%; display: flex; align-items: center; justify-content: space-between; height: 1px; background: linear-gradient(90deg, transparent, rgb(100 147 202 / 70%), transparent); transform: rotate(-8deg); }
 .performance-band__line i { width: 5px; height: 5px; border-radius: 50%; background: #85baff; box-shadow: 0 0 16px rgb(59 130 246 / 80%); }
 .performance-disclaimer { max-width: 85ch; margin: 1.35rem 0 0; color: #77818b; font-size: 0.64rem; line-height: 1.7; }
+.interior-section { padding-block: clamp(6rem, 12vw, 11rem); background: #090b0e; }
+.interior-section__header { display: grid; grid-template-columns: 1fr 1fr; align-items: end; column-gap: 3rem; }
+.interior-section__header .eyebrow { grid-column: 1 / -1; margin: 0 0 1.4rem; }
+.interior-section__header .body-copy { margin: 0 0 0.4rem; }
+.interior-visual { position: relative; aspect-ratio: 1.6; overflow: hidden; margin-top: clamp(3rem, 6vw, 5.5rem); background: #151a20; }
+.interior-visual img { object-fit: cover; }
+.interior-visual::after { position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgb(5 7 9 / 70%)); content: ""; pointer-events: none; }
+.interior-hotspot { position: absolute; z-index: 2; display: grid; width: 2.5rem; height: 2.5rem; place-items: center; border: 1px solid rgb(255 255 255 / 66%); border-radius: 50%; background: rgb(10 14 18 / 58%); color: white; cursor: pointer; transform: translate(-50%, -50%); transition: background-color 180ms ease, border-color 180ms ease, scale 180ms var(--ease-out); backdrop-filter: blur(8px); }
+.interior-hotspot span { font-size: 0.56rem; font-variant-numeric: tabular-nums; }
+.interior-hotspot.is-active { border-color: white; background: var(--electric); scale: 1.08; }
+.interior-visual__caption { position: absolute; z-index: 2; right: 1.5rem; bottom: 1.3rem; left: 1.5rem; display: flex; justify-content: space-between; color: rgb(235 240 244 / 75%); font-size: 0.5rem; letter-spacing: 0.16em; pointer-events: none; }
+.interior-detail { display: grid; grid-template-columns: 0.7fr 1fr 1fr; align-items: baseline; gap: 1.5rem; border-bottom: 1px solid var(--line); padding-block: 1.65rem; }
+.interior-detail .eyebrow { margin: 0; }
+.interior-detail h3 { margin: 0; font-size: clamp(1.2rem, 2.3vw, 2rem); font-weight: 400; letter-spacing: -0.04em; }
+.interior-detail > p { max-width: 42ch; margin: 0; color: var(--muted); font-size: 0.83rem; line-height: 1.65; }
+.technology-section { padding-block: clamp(6rem, 12vw, 11rem); background: #0e1116; }
+.technology-section__heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
+.technology-section__heading .eyebrow { margin: 0 0 1.4rem; }
+.technology-section__heading h2 span { color: #727c86; }
+.technology-section__heading .body-copy { margin: 0 0 0.4rem; }
+.technology-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(3.5rem, 7vw, 6rem); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.technology-card { min-height: 18rem; padding: 1.35rem 1.2rem 1.5rem 0; }
+.technology-card + .technology-card { border-left: 1px solid var(--line); padding-left: 1.3rem; }
+.technology-card__top { display: flex; align-items: center; justify-content: space-between; color: #a5afb9; }
+.technology-card__top span { color: #626d77; font-size: 0.56rem; letter-spacing: 0.14em; }
+.technology-card .eyebrow { margin: 2.6rem 0 0.8rem; font-size: 0.56rem; }
+.technology-card h3 { max-width: 13ch; margin: 0; font-size: clamp(1.2rem, 2vw, 1.7rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1.15; }
+.technology-card .body-copy { margin: 1rem 0 0; font-size: 0.78rem; line-height: 1.7; }
+.technology-disclaimer { margin: 1.3rem 0 0; color: #737d87; font-size: 0.64rem; line-height: 1.65; }
 @media (hover: hover) and (pointer: fine) {
   .design-details__list button:hover { color: #fff; }
 }
@@ -374,6 +403,21 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .metric-value { font-size: clamp(2.35rem, 12vw, 3.4rem); }
   .performance-band { min-height: 15rem; margin-top: 3rem; padding: 1.5rem; }
   .performance-disclaimer { font-size: 0.6rem; }
+  .interior-section, .technology-section { padding-block: 5.5rem; }
+  .interior-section__header { grid-template-columns: 1fr; gap: 1.3rem; }
+  .interior-section__header .eyebrow { margin: 0; }
+  .interior-visual { min-height: 360px; margin-top: 2.5rem; aspect-ratio: 0.95; }
+  .interior-visual img { object-position: center; }
+  .interior-hotspot { width: 2.3rem; height: 2.3rem; }
+  .interior-visual__caption { right: 1rem; bottom: 1rem; left: 1rem; font-size: 0.42rem; }
+  .interior-detail { grid-template-columns: 1fr; gap: 0.6rem; padding-block: 1.3rem; }
+  .technology-section__heading { display: grid; gap: 1.3rem; }
+  .technology-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 3rem; }
+  .technology-card { min-height: 16rem; padding-block: 1.1rem; }
+  .technology-card + .technology-card { padding-left: 1rem; }
+  .technology-card:nth-child(3) { border-left: 0; padding-left: 0; }
+  .technology-card:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .technology-card .eyebrow { margin-top: 2rem; }
 }
 
 @media (min-width: 701px) and (max-width: 900px) {
