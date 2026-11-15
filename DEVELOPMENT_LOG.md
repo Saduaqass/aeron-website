@@ -60,8 +60,8 @@
 - Changes: Added shared vehicle configuration state, five live paint colors, front/side/rear camera presets, a lighting toggle, wheel-style state, and orbit/zoom controls. Added a text fallback when WebGL is unavailable. Improved the side glazing and paint response.
 - Skills: Applied `gestures` for touch-capable drag/orbit and `animation-performance` for bounded zoom/damping and an explicitly low-power renderer; applied `frontend-engineer` for keyboard-operable labeled controls.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Browser interaction verified the Arctic paint selection state and the side camera view.
-- Commit: Pending
-- Push: Pending
+- Commit: `eb343021894d97c805d36cfac333594f59626a08` (`feat: build design section`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 8 — Scroll-driven storytelling
 
