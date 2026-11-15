@@ -15,5 +15,5 @@
 - Changes: Configured the Next.js App Router, strict TypeScript, Tailwind CSS, ESLint, npm scripts, and Next.js agent guidance. Added tracked placeholders for the planned source and asset folders.
 - Skills: Applied `frontend-engineer` for the project structure, strict typing, responsive/accessibility foundations, and production practices.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Direct TypeScript checking exposed a missing generated `LayoutProps` global; the root layout was corrected to use an explicit `React.ReactNode` type and all checks then passed.
-- Commit: Pending
-- Push: Pending
+- Commit: `5a79b76968d08bc7a9b2f2cafd8d8c76b92f4c7b` (`chore: configure frontend stack`)
+- Push: Successful; verified on `origin/main`
