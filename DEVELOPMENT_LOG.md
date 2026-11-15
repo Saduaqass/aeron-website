@@ -159,5 +159,5 @@
 - Changes: Replaced the initialization placeholder README with the implemented feature set, setup/build/test commands, current product limitations, project structure, skills provenance, original asset/license notes, and repository link.
 - Skills: Applied `documentation-writer` for task-oriented project documentation and kept technical claims within verified project behavior.
 - Checks: `npm run lint`, `npx tsc --noEmit`, `npm run build`, `npm run test:e2e` (5 scenarios), and production dependency audit pass.
-- Commit: Pending
-- Push: Pending
+- Commit: `f34383e` (`docs: finalize AERON project documentation`)
+- Push: Successful; verified on `origin/main`
