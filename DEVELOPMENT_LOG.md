@@ -98,3 +98,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: Pending
 - Push: Pending
+
+## Stage 12 — Vehicle configurator
+
+- Date: 2026-11-15
+- Changes: Added a live 3D configurator for five paint colors, three interior themes, two wheel treatments, and three camera angles. Selection state is shared with the hero/story/design scenes and summarized without inventing pricing.
+- Skills: Applied `frontend-engineer` for grouped, keyboard-operable configuration controls and `emil-design-eng` for concise selected states and feedback.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending
