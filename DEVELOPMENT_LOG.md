@@ -26,3 +26,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: `df6407c268d3f934ff2849844c822f4d9f368fd9` (`feat: create AERON design system`)
 - Push: Successful; verified on `origin/main`
+
+## Stage 4 — Responsive navigation
+
+- Date: 2026-11-15
+- Changes: Added the sticky compacting header, active-section tracking, desktop navigation, language selector shell, and Escape-closeable mobile navigation with accessible state attributes and focus-visible support.
+- Skills: Applied `emil-design-eng` and `choreograph` guidance for purposeful, coordinated menu transitions; applied `mobile-native` for touch feedback and hover capability gating; applied `frontend-engineer` for keyboard interaction and semantic navigation.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending
