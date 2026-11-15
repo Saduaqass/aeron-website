@@ -132,5 +132,5 @@
 - Changes: Added safe-area-aware viewport metadata and spacing, tightened the mobile header and vehicle controls for 44px touch targets, adjusted the 3D framing for thumb controls, fixed a scroll-state update issue, and removed 320px horizontal overflow in the interior illustration.
 - Skills: Applied `mobile-native` for mobile Safari viewport/safe-area behavior, `gestures` for touch sizing, `animation-performance` for stable scroll state, and `frontend-engineer` for responsive layout and operable navigation.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Browser verified 320px layout with no horizontal document overflow, 44px control targets, and mobile menu open/Escape close.
-- Commit: Pending
-- Push: Pending
+- Commit: `b5751fa` (`feat: optimize mobile experience`)
+- Push: Successful; verified on `origin/main`
