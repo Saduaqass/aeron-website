@@ -51,8 +51,8 @@
 - Changes: Integrated a separately loaded React Three Fiber/Drei scene and built an original procedural AERON ONE sedan from extruded body/cabin geometry, emissive lighting, and custom wheel assemblies. Added low-power renderer preference and capped pixel ratio. No third-party 3D assets are used.
 - Skills: Applied `animation-performance` for lazy loading and bounded rendering cost; applied `frontend-engineer` for modular client-only 3D code and an accessible scene label.
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass. Opened the local page in the browser and visually confirmed the model renders in the hero.
-- Commit: Pending
-- Push: Pending
+- Commit: `2bac7c3449dbab6b2f111d891dd5f9fa5aaee295` (`feat: implement scroll-driven storytelling`)
+- Push: Successful; verified on `origin/main`
 
 ## Stage 7 — Interactive vehicle controls
 
