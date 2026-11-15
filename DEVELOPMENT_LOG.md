@@ -71,3 +71,12 @@
 - Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
 - Commit: Pending
 - Push: Pending
+
+## Stage 9 — Design section
+
+- Date: 2026-11-15
+- Changes: Added an interactive design presentation with the procedural 3D model, image reveal, conceptual aero callout, and accessible detail selectors that change the shared camera angle and description.
+- Skills: Applied `animate` for the reveal, `emil-design-eng` for intentional states and transitions, and `frontend-engineer` for accessible button-driven feature selection.
+- Checks: `npm run lint`, `npx tsc --noEmit`, and `npm run build` pass.
+- Commit: Pending
+- Push: Pending
